@@ -1,0 +1,31 @@
+﻿@model SegaSaturn
+
+<h2>Update @Model.Name</h2>
+
+@using (Html.BeginForm("UpdateSegaSaturnToDatabase", "SegaSaturn", "Post"))
+{
+    <input asp-for="ID" type="hidden" value="@Model.ID" />
+
+    <label asp-for="Name" class="control-label">Name</label>
+    <input type="text" name="Name" class="form-control" value="@Model.Name" />
+
+    <label asp-for="Developer" class="control-label">Developer</label>
+    <input type="text" name="Developer" class="form-control" value="@Model.Developer" />
+
+    <label asp-for="Publisher" class="control-label">Publisher</label>
+    <input type="text" name="Publisher" class="form-control" value="@Model.Publisher" />
+
+    <label asp-for="Genre" class="control-label">Genre</label>
+    <input type="text" name="Genre" class="form-control" value="@Model.Genre" />
+
+    <label asp-for="Raiting" class="control-label">Raiting</label>
+    <input type="text" name="Raiting" class="form-control" value="@Model.Raiting" />
+
+    <label asp-for="NumberOfPlayers" class="control-label">"NumberOfPlayers"</label>
+    <input type="number" step="1" name="NumberOfPlayers" class="form-control" value="@Model.NumberOfPlayers" />
+
+    <label asp-for="ReleaseDate" class="control-label">ReleaseDate</label>
+    <input type="text" name="ReleaseDate" class="form-control" value="@Model.ReleaseDate" />
+
+    <input type="submit" value="Update SegaSaturn" class="btn btn-primary" />
+}

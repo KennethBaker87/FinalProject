@@ -1,0 +1,41 @@
+﻿@model SegaSaturn
+
+<h2>Create a New Game</h2>
+
+@using (Html.BeginForm("InsertProductToDatabase", "SegaSaturn", "Post"))
+{
+    <input asp-for="ID" type="hidden" value="" />
+
+    <label asp-for="Name" class="control-label">Name</label>
+    <input type="text" name="Name" class="form-control" value="" />
+
+    <label asp-for="Developer" class="control-label">Developer</label>
+    <input type="text" name="Developer" class="form-control" value="" />
+
+    <label asp-for="Publisher" class="control-label">Publisher</label>
+    <input type="text" name="Publisher" class="form-control" value="" />
+
+    <label asp-for="Genre" class="control-label">Genre</label>
+    <input type="text" name="Genre" class="form-control" value="" />
+
+    <label asp-for="Raiting" class="control-label">Raiting</label>
+    <input type="text" name="Raiting" class="form-control" value="" />
+
+    <label asp-for="NumberOfPlayers" class="control-label">NumberOfPlayers</label>
+    <input type="number" step="1.00" name="NumberOfPlayers" class="form-control" />
+
+    <label asp-for="ReleaseDate" class="control-label">ReleaseDate</label>
+    <input type="text" name="ReleaseDate" class="form-control" value="" />
+
+    <div class="form-group">
+        <label for="">Select a Genre</label>
+        <select class="form-control" name="Genre" value="">
+            @foreach (var cat in Model.Categories)
+            {
+                <option value="@cat.Genre">@cat.Genre</option>
+            }
+        </select>
+    </div>
+
+    <input type="submit" value="Create Product" class="btn btn-primary" />
+}

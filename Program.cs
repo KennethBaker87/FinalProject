@@ -1,3 +1,6 @@
+using MySql.Data.MySqlClient;
+using System.Data;
+
 namespace FinalProject
 {
     public class Program
@@ -8,6 +11,15 @@ namespace FinalProject
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddScoped<IDbConnection>((s) =>
+            {
+                IDbConnection conn = new MySqlConnection(builder.Configuration.GetConnectionString("retrogames"));
+                conn.Open();
+                return conn;
+            });
+
+            builder.Services.AddTransient<ISegaSaturnRepository, SegaSaturnRepository>();
 
             var app = builder.Build();
 
