@@ -1,6 +1,10 @@
 ﻿@model SegaSaturn
 
 <h3>@Model.Name Information</h3>
+@{
+    var base64 = Convert.ToBase64String(Model.BoxArt);
+    var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+}
 
 <table class="table">
     <tr>
@@ -9,7 +13,7 @@
         <th>Developer</th>
         <th>Publisher</th>
         <th>Genre</th>
-        <th>Raiting</th>
+        <th>Rating</th>
         <th>Number of Players</th>
         <th>Release Date</th>
         <th>Box Art</th>
@@ -20,16 +24,17 @@
         <td>@Model.Developer</td>
         <td>@Model.Publisher</td>
         <td>@Model.Genre</td>
-        <td>@Model.Raiting</td>
+        <td>@Model.Rating</td>
         <td>@Model.NumberOfPlayers</td>
         <td>@Model.ReleaseDate</td>
-        <td>@Model.BoxArt</td>
+        <td><img src="@imgSrc" /></td>
     </tr>
 </table>
 
 <div style="display: block">
     <a href="/SegaSaturn/UpdateSegaSaturn/@Model.ID">Update this Game</a>
 </div>
+<br/>
 
 <div style="display: block">
 

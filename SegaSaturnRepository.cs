@@ -20,25 +20,57 @@ namespace FinalProject
 
         public SegaSaturn GetSegaSaturn(int id)
         {
-            return _conn.QuerySingle<SegaSaturn>("SELECT * FROM segasaturn WHERE ID = @id", 
+            return _conn.QuerySingle<SegaSaturn>("SELECT * FROM segasaturn WHERE ID = @ID", 
                 new { id = id });
         }
 
         public void UpdateSegaSaturn(SegaSaturn game)
         {
-            _conn.Execute("UPDATE segasaturn SET Name = @name, Developer = @developer, Publisher = @publisher," +
-                "Genre = @genre, Raiting = @raiting, NumberOfPlayers = @numberofplayers," +
-                "ReleaseDate = @releasedate WHERE ID = @id",
-            new { name = game.Name, Developer = game.Developer, Publisher = game.Publisher,
-                genre = game.Genre, raiting = game.Raiting, numberofplayers = game.NumberOfPlayers,
-                releasedate = game.ReleaseDate, id = game.ID });
+            _ = _conn.Execute("UPDATE segasaturn SET name = @Name," +
+                " developer = @Developer," +
+                " publisher = @Publisher," +
+                "genre = @Genre," +
+                " rating = @Rating," +
+                " numberofplayers = @NumberOfPlayers," +
+                "releasedate = @ReleaseDate" +
+                " WHERE id = @ID",
+            new
+            {
+                name = game.Name,
+                developer = game.Developer,
+                publisher = game.Publisher,
+                genre = game.Genre,
+                rating = game.Rating,
+                numberofplayers = game.NumberOfPlayers,
+                releasedate = game.ReleaseDate,
+                id = game.ID
+            });
         }
         public void InsertSegaSaturn(SegaSaturn productToInsert)
         {
-            _conn.Execute("INSERT INTO products (NAME, PRICE, CATEGORYID) VALUES (@name, @price, @categoryID);",
+            _conn.Execute("INSERT INTO segasaturn (Name, Developer, Publisher, Genre,  Rating, NumberOfPlayers, ReleaseDate)" +
+                " VALUES (@Name, @Developer, @Publisher, @Genre, @Rating, @NumberOfPlayers, @ReleaseDate Where ID = @ID);",
                 new { name = productToInsert.Name, developer = productToInsert.Developer, publisher = productToInsert.Publisher, genre = productToInsert.Genre,
-                raiting = productToInsert.Raiting, numberofplayer = productToInsert.NumberOfPlayers, 
+                rating = productToInsert.Rating, numberofplayer = productToInsert.NumberOfPlayers, 
                     releasedate = productToInsert.ReleaseDate});
+        }
+
+
+        public void InsertProduct(SegaSaturn productToInsert)
+        {
+            _conn.Execute("INSERT INTO segasaturn (NAME, DEVELOPER, PUBLISHER, " +
+                "GENRE, RATING, NUMBEROFPLAYERS, RELEASEDATE) " +
+                "VALUES (@Name, @Developer, @Publisher, " +
+                "@Genre, @Rating, @NumberOfPlayers, @ReleaseDate);",
+        new { name = productToInsert.Name, developer = productToInsert.Developer, 
+            publisher = productToInsert.Publisher, genre = productToInsert.Genre, 
+            rating = productToInsert.Rating, numberofplayers = productToInsert.NumberOfPlayers,
+        releasedate = productToInsert.ReleaseDate});
+        }
+
+        public void DeleteProduct(SegaSaturn game)
+        {
+            _conn.Execute("DELETE FROM segasaturn WHERE ID = @id;", new { id = game.ID });
         }
 
         public IEnumerable<Category> GetCategories()
@@ -52,23 +84,6 @@ namespace FinalProject
             var product = new SegaSaturn();
             product.Categories = categoryList;
             return product;
-        }
-
-        public void InsertProduct(SegaSaturn productToInsert)
-        {
-            _conn.Execute("INSERT INTO segasaturn (NAME, DEVELOPER, PUBLISHER, " +
-                "GENRE, RAITING, NUMBEROFPLAYERS, RELEASEDATE) " +
-                "VALUES (@name, @developer, @publisher, " +
-                "@genre, @raiting, @numberofplayers, @releasedate);",
-        new { name = productToInsert.Name, developer = productToInsert.Developer, 
-            publisher = productToInsert.Publisher, genre = productToInsert.Genre, 
-            raiting = productToInsert.Raiting, numberofplayers = productToInsert.NumberOfPlayers,
-        releasedate = productToInsert.ReleaseDate});
-        }
-
-        public void DeleteProduct(SegaSaturn game)
-        {
-            _conn.Execute("DELETE FROM segasaturn WHERE ID = @id;", new { id = game.ID });
         }
     }
 }

@@ -18,24 +18,17 @@
     <label asp-for="Genre" class="control-label">Genre</label>
     <input type="text" name="Genre" class="form-control" value="" />
 
-    <label asp-for="Raiting" class="control-label">Raiting</label>
-    <input type="text" name="Raiting" class="form-control" value="" />
+    <label asp-for="Rating" class="control-label">Rating</label>
+    <input type="text" name="Rating" class="form-control" value="" />
 
     <label asp-for="NumberOfPlayers" class="control-label">NumberOfPlayers</label>
     <input type="number" step="1.00" name="NumberOfPlayers" class="form-control" />
 
     <label asp-for="ReleaseDate" class="control-label">ReleaseDate</label>
     <input type="text" name="ReleaseDate" class="form-control" value="" />
+    <br/>
 
-    <div class="form-group">
-        <label for="">Select a Genre</label>
-        <select class="form-control" name="Genre" value="">
-            @foreach (var cat in Model.Categories)
-            {
-                <option value="@cat.Genre">@cat.Genre</option>
-            }
-        </select>
-    </div>
+    
 
     <input type="submit" value="Create Product" class="btn btn-primary" />
 }

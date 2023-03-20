@@ -31,14 +31,31 @@ namespace FinalProject.Controllers
              SegaSaturn game = repo.GetSegaSaturn(id);
             if (game == null)
             {
-                return View("GameNotFound");
+                return View("Game Not Found");
             }
             return View(game);
 
            
         }
-        public IActionResult UpdateSegaSaturnToDatabase(SegaSaturn game)
+        public IActionResult UpdateSegaSaturnToDatabase(SegaSaturn game, IFormFile picture)
         {
+            if (picture != null && picture.Length > 0)
+            {
+                game.BoxArt = new byte[picture.Length];
+                picture.OpenReadStream().Read(game.BoxArt, 0, (int)picture.Length);
+                //--OR--
+                //using (var memoryStream = new MemoryStream())
+                //{
+                //    picture.CopyTo(memoryStream);
+                //    dogToUpdate.Picture = memoryStream.ToArray();
+                //}
+            }
+            else
+            {
+                var currentGame = repo.GetSegaSaturn(game.ID);
+                game.BoxArt = currentGame.BoxArt;
+            }
+
             repo.UpdateSegaSaturn(game);
 
             return RedirectToAction("ViewSegaSaturn", new { id = game.ID });
@@ -48,9 +65,17 @@ namespace FinalProject.Controllers
             var prod = repo.AssignCategory();
             return View(prod);
         }
-        public IActionResult InsertProductToDatabase(SegaSaturn productToInsert)
+        public IActionResult InsertProductToDatabase(SegaSaturn productToInsert, IFormFile picture)
+
         {
+            if (picture != null && picture.Length > 0)
+            {
+                productToInsert.BoxArt = new byte[picture.Length];
+                picture.OpenReadStream().Read(productToInsert.BoxArt, 0, (int)picture.Length);
+            }
+            
             repo.InsertProduct(productToInsert);
+
             return RedirectToAction("Index");
         }
         public IActionResult DeleteProduct(SegaSaturn game)
