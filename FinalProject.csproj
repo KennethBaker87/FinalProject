@@ -7,6 +7,30 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\Images\Astal %28USA%29.png" />
+    <None Include="wwwroot\Images\Bug! %28USA%29.png" />
+    <None Include="wwwroot\Images\Clockwork Knight %28USA%29.png" />
+    <None Include="wwwroot\Images\Cyber Speedway %28USA%29.png" />
+    <None Include="wwwroot\Images\Dark Legend %28USA%29.png" />
+    <None Include="wwwroot\Images\Daytona USA %28USA%29.png" />
+    <None Include="wwwroot\Images\Ghen War %28USA%29.png" />
+    <None Include="wwwroot\Images\Minnesota Fats - Pool Legend %28USA%29.png" />
+    <None Include="wwwroot\Images\Myst %28USA%29.png" />
+    <None Include="wwwroot\Images\NHL All-Star Hockey %28USA%29.png" />
+    <None Include="wwwroot\Images\Off-World Interceptor Extreme %28USA%29.png" />
+    <None Include="wwwroot\Images\Panzer Dragoon %28USA%29.png" />
+    <None Include="wwwroot\Images\Pebble Beach Golf Links %28USA%29.png" />
+    <None Include="wwwroot\Images\Robotica %28USA%29.png" />
+    <None Include="wwwroot\Images\Default.png" />
+    <None Include="wwwroot\Images\Shanghai - Triple Threat %28USA%29.png" />
+    <None Include="wwwroot\Images\Shinobi Legions %28USA%29.png" />
+    <None Include="wwwroot\Images\Street Fighter - The Movie %28USA%29.png" />
+    <None Include="wwwroot\Images\Virtua Fighter %28USA%29.png" />
+    <None Include="wwwroot\Images\Virtual Hydlide %28USA%29.png" />
+    <None Include="wwwroot\Images\Worldwide Soccer - Sega International Victory Goal Edition %28USA%29.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.123" />
     <PackageReference Include="MySql.Data" Version="8.0.32.1" />
   </ItemGroup>

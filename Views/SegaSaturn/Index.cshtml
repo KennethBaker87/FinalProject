@@ -24,10 +24,28 @@
 
     @foreach (var game in @Model)
     {
-        var base64 = Convert.ToBase64String(game.BoxArt);
-        var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
-            <tr>
-            <td><a href=/SegaSaturn/ViewSegaSaturn/@game.ID>@game.ID</a></td>
+       <tr>
+          @if (game.BoxArt == null)
+            {
+                <td><a href=/SegaSaturn/ViewSegaSaturn/@game.ID>@game.ID</a></td>
+                 <td>@game.Name</td>
+                <td>@game.Developer</td>
+                <td>@game.Publisher</td>
+                <td>@game.Genre</td>
+                <td>@game.Rating</td>
+                <td>@game.NumberOfPlayers</td>
+                <td>@game.ReleaseDate</td>
+                <td><a href=/SegaSaturn/ViewSegaSatrun/@game.ID><img src="/Images/Default.png"/></a></td>
+
+            }
+            else
+            {
+        
+            var base64 = Convert.ToBase64String(game.BoxArt);
+            var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+
+            
+                <td><a href=/SegaSaturn/ViewSegaSaturn/@game.ID>@game.ID</a></td>
                 <td>@game.Name</td>
                 <td>@game.Developer</td>
                 <td>@game.Publisher</td>
@@ -36,7 +54,12 @@
                 <td>@game.NumberOfPlayers</td>
                 <td>@game.ReleaseDate</td>
                 <td><a href=/SegaSaturn/ViewSegaSaturn/@game.ID><img src="@imgSrc" /></a></td>
-            </tr>
+            
+            }
+        </tr>
+            
+
     }
 
 </table>
+
