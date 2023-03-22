@@ -1,18 +1,33 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
+    color: black;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+        color: black;
+        
+        
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
+    color: black;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    color: black;
+    background: url('../images/background4a.png') no-repeat center center fixed;
+    background-size: cover;    
+    height: 75%;
 }
+tr {
+    
+    color: black;
+    font-weight: bold;
+}
+
