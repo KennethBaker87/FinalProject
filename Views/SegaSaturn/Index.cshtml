@@ -4,22 +4,23 @@
     .all {
      z-index: 1;
      position: fixed;
-     width: 500px;
-     height: 200px;
+     max-width:100%;
+     width: auto;
+     height: auto;
      padding: 10px;
-     top: 5%;
-     left: 9%;
-     margin-top: -100px;  
-     margin-left: -250px;  
+     top: -3%;
+     left: -1%;  
      pointer-events: none;
-     
     }
 </style>
+
 
 <div class="all">
     <img src="~/images/background4a.png" />
     
 </div>
+
+
 
 <h2>Games</h2>
 
@@ -27,7 +28,10 @@
 
 
 <div style="display: block">
-    <a href="/SegaSaturn/InsertProduct/">Create a New Game</a>
+    <!--<a href="/SegaSaturn/InsertProduct/">Create a New Game</a>-->
+    <button class="btn btn-primary" onclick="window.location.href='/SegaSaturn/InsertProduct/';">
+        Create a New Game
+    </button>
 </div>
 
 <table class="table">

@@ -20,14 +20,14 @@ html {
 
 body {
     margin-bottom: 60px;
-    color: black;
-    background: url('../images/background4a.png') no-repeat center center fixed;
-    background-size: cover;    
-    height: 75%;
+    color: black; 
+    
+
 }
 tr {
     
     color: black;
     font-weight: bold;
 }
+
 

@@ -1,4 +1,25 @@
 ﻿@model SegaSaturn
+<style>
+    .all {
+     z-index: 1;
+     position: fixed;
+     width: 500px;
+     height: 200px;
+     padding: 10px;
+     top: 5%;
+     left: 9%;
+     margin-top: -100px;  
+     margin-left: -250px;  
+     pointer-events: none;
+     
+     
+    }
+</style>
+
+<div class="all">
+    <img src="~/images/background4a.png" />
+
+</div>
 
 <h2>Update @Model.Name</h2>
 
@@ -26,6 +47,7 @@
 
     <label asp-for="ReleaseDate" class="control-label">ReleaseDate</label>
     <input type="text" name="ReleaseDate" class="form-control" value="@Model.ReleaseDate" />
+    <br>
 
-    <input type="submit" value="Update SegaSaturn" class="btn btn-primary" />
+    <input type="submit" value="Update SegaSaturn" class="btn btn-primary"/>
 }
